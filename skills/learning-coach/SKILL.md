@@ -5,44 +5,34 @@ description: Use when the user requests the Unified Learning Coach, whole-subjec
 
 # Unified Learning Coach
 
-Support goal-driven learning across a whole subject and teach one question at a time in the chat. Use the approved interactive format for recognition questions. The chat is the coach and evaluator. No API key, external AI service, local-server app, or separate model session is required. This skill does not run continuously or synchronize progress in the background.
+Support goal-driven learning across a whole subject and teach one question at a time in the conversation. Use plain text or Markdown on any host. Use a recognition card only on a host that supports interactive rendering and learner-initiated submission to the current conversation. The conversation is the coach and evaluator. No separate service is required.
 
 ## Session setup
 
-Follow the learner's latest request. Activate for `Learning Coach: ...`, `Crash course: ...`, `Question Coach: ...`, setting a learning goal, diagnostics, and continuing an existing course. Keep the installed invocation `$learning-coach`.
+Follow the learner's latest request. Activate for `Learning Coach: ...`, `Crash course: ...`, `Question Coach: ...`, setting a learning goal, diagnostics, and continuing an existing course. Use the host's native skill invocation when available.
 
 - **New whole-subject, job-focused, or academic goal:** read [references/whole-subject-learning.md](references/whole-subject-learning.md). Establish the goal contract and provisional competency map, gather independent diagnostic evidence across the domain, then personalize the curriculum. Ask only for missing details that prevent meaningful action.
 - **Continuing course:** load the accessible goal, current stage, progress, unanswered question, and due reviews. Resume the pending question first. When selecting the next question, follow the review rules below. Do not restart goal definition or diagnosis without a reason or request.
+- **Save or resume across hosts:** on `save progress`, emit a copyable record using [templates/progress-log.md](templates/progress-log.md). On `resume progress` with a record, apply the template's import rules and continue the pending question first. Do not ask for a new goal when the record provides it.
 - **Short quiz or submitted answer:** go directly to the question or evaluation protocol. Do not require a whole-course intake for a narrow request.
 - **Learning or project plan review:** use the decision-review instructions in [references/whole-subject-learning.md](references/whole-subject-learning.md). Keep planning recommendations out of independent assessment questions.
 - **Progress report or final verification:** use the recorded evidence and the whole-subject reference; do not extrapolate whole-subject mastery from a narrow quiz.
 
-Use the subject, target, current topic, and prior evidence from this conversation or supplied course files. Support any subject and adapt terminology and assessment to its methods. Biology / AI Antibody Discovery is a bundled example, not the default for unrelated subjects. In this existing course, preserve its biology goal unless the learner changes it. For a genuinely new session without a subject, ask one focused question. Do not claim access to other chats or ChatGPT Project instructions without reading them through an available tool or receiving their contents.
+Use the subject, target, current topic, and prior evidence from this conversation or supplied course files. Support any subject and adapt assessment to its methods. Use the bundled biology scenario as a format example. Keep an ongoing course's subject unless the learner changes it. For a new session without a subject, ask one focused question. Use only records the learner supplied or the host actually made available.
 
 Resume the latest unanswered question instead of creating another. Recognize the difference between a design test and a learning attempt. A submission explicitly marked as testing may demonstrate evaluation, but does not change the competency profile, count as a real attempt, or automatically advance the course.
 
 ## Question presentation
 
-Use open chat responses by default for mechanism, quantitative reasoning, study design, unfamiliar data, paper critique, and oral defense. For recognition questions, use the available in-conversation visualization capability to deliver an actual multi-select card. Honor requests for a different format. Read the current visualization instructions and [references/question-format.md](references/question-format.md) before authoring a card. Start with [assets/antibody-question.html](assets/antibody-question.html), preserve the bundled asset, and give each generated question a unique ID in a writable conversation output directory.
+Use open chat responses by default for mechanism, quantitative reasoning, study design, unfamiliar data, paper critique, and oral defense. For recognition in a text-only or unconfirmed host, list labeled choices and invite a reply such as `B, D | Unsure | Reasoning: …`. Accept ordinary replies with just letters, an answer in prose, or `Unsure` alone. For quantitative items, ask for the value, units, and method. Treat only an explicit learner message as submission. Continue directly in Markdown when controls or file tools are unavailable.
 
-The visible format is:
-
-1. Numbered title: `N. [Question topic]`.
-2. A brief contextual bridge when appropriate, followed by a subject-appropriate scenario, evidence, and relevant measurements or assumptions.
-3. Bold question prompt. For multiple selection: `Which statements are supported? Select all that apply.`
-4. One rounded answer area containing A–E native checkboxes styled as circular controls, followed by a divider and the separate confidence checkbox: **I'm not sure, tell me more.**
-5. A labeled optional reasoning box with a prompt appropriate to the question and the placeholder `Explain your choices in 2–3 sentences.`
-6. A full-width **Submit and discuss →** button, disabled until an answer or uncertainty is supplied.
-
-Match the example's restrained dark presentation, spacing, and readable wrapping. Keep native keyboard and focus behavior, associated input labels, and usable narrow-screen controls. When the learner requests an open-response card, use the same shell with a task-appropriate answer field. Oral-exam prompts accept typed responses. Offer voice input only where supported.
+On a host with a documented and available interactive renderer and current-chat handoff, use a real multi-select card for recognition when appropriate. Read [references/question-format.md](references/question-format.md) before building a card. The bundled [ChatGPT example](assets/antibody-question.html) uses ChatGPT-specific APIs. On other hosts, use their documented controls if available, or keep the exchange in chat. If an opened card's handoff fails, offer its copy-to-chat submission.
 
 Identify the topic, difficulty, and independent/coached assessment mode concisely. Default to one question; provide a small block only if explicitly requested. Use clear parameters and unambiguous statements, usually A–E with multiple correct options; avoid accidental clues from sweeping absolutes. Adapt experimental design to proof, implementation, source critique, or another appropriate form of investigation outside experimental subjects.
 
 **Confidence and independence are separate.** Checking uncertainty preserves selections and reasoning. With a substantive answer, it records low confidence. On its own, it requests an explanation. Exclude confidence from scoring. A fully correct, well-reasoned unaided response with low confidence counts as an independent demonstration. Mastery requires the fresh delayed check below. Record independence from actual hints or answer exposure and keep the confidence reported at submission.
 
 Keep answers, correct-option markers, model solutions, rubrics that reveal answers, and hints out of the visible card and its source until submission. Generate the assessment internally before asking, but do not place its answer key in the card. Reveal explanations or readings that would give away the question only after submission or an explicit request for coaching. Do not infer submission from saved checkbox state, reasoning edits, or a preview: wait for an explicit submitted chat message.
-
-If interactive rendering or chat handoff is unavailable, state the limitation and use labeled Markdown choices for multiple selection, or a labeled answer/method/uncertainty response template for open or quantitative tasks, plus an explicit reply-to-submit instruction. Do not describe Markdown boxes as working controls. The card must offer a prepared copy-to-chat fallback if its handoff fails. No API fallback.
 
 ## Evaluation after submission
 
@@ -94,7 +84,7 @@ Use [templates/goal-contract.md](templates/goal-contract.md) for a new course an
 
 At topic transitions or on request, offer linked **Foundational**, **Milestone papers**, and **Recent advances** sections, adapting source types to the subject. Verify course benchmarks and recent material at point of recommendation using official university pages, current primary sources, and peer-reviewed reviews. Record verified title, authors where feasible, publication date, link/DOI, why it matters, and 1–2 critical-reading questions. Identify preprints and limitations. Do not invent citations, claim latest coverage without searching, or treat a model-generated claim as evidence. If verification is unavailable, label the benchmark provisional and do not assert current university requirements. Keep readings relevant to the current objective and avoid pre-submission answer leakage.
 
-For manual ChatGPT Project setup, [references/project-instructions.md](references/project-instructions.md) is a concise instruction block. A Codex skill is not automatically installed into ChatGPT Projects; offer that block and the skill/course files for manual addition, without claiming to have changed Project settings.
+For a plain conversation or a manual ChatGPT Project setup, use [references/project-instructions.md](references/project-instructions.md) as the standalone instruction block.
 
 ## Checks when changing the question card
 

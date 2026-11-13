@@ -1,11 +1,12 @@
 # Course progress and handoff
 
-Use this structure as a copyable record or to organize an authorized course ledger. Record actual evidence, not placeholder mastery. When using `learning-coach-progress.json`, preserve its existing structure/history and put these fields into the corresponding course record rather than replacing unrelated courses.
+Use this structure as a copyable Markdown record or to organize an authorized course ledger. When using `learning-coach-progress.json`, preserve its existing structure and put these fields into the corresponding course record. On `save progress`, emit a fenced Markdown record with the fields below. Use ISO dates (`YYYY-MM-DD`) and record the course time zone when known. Mark missing facts as unknown.
 
 ## Course state
 
 - Learner / course / goal ID:
 - Goal, subject, target, and scope:
+- As-of date and time zone:
 - Current stage and current objective:
 - Verified source crosswalk and dates; provisional sources:
 - Diagnostic coverage: assessed domains / known total domains; unassessed areas:
@@ -27,6 +28,10 @@ Statuses are **Not assessed / Developing / Mastered**. Record the two qualifying
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
 Record actual submissions and exclude explicit interface tests. Link a same-item probe to the original attempt and record any scaffolding. Keep correct sets and worked answers out of any handoff for a pending question or probe. Record uncertainty alone as an unscored gap. For open questions, record criterion-level evidence.
+
+## Resume in another conversation
+
+Treat a supplied handoff as course evidence. Match the course ID and goal before updating an existing record. Deduplicate by attempt ID and retain earlier evidence. If a material conflict or ambiguous course prevents a safe merge, keep the records separate and ask one focused question. Preserve reported mastery and mark it pending verification when qualifying evidence is incomplete. Retain the pending prompt, mode, and prior exposure. Resume it before giving a due review. If its answer key was exposed, treat the item as coached and queue a fresh independent check. A supplied handoff does not itself count as a submission or write to a ledger.
 
 ## Progress display
 

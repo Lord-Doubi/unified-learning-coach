@@ -1,10 +1,14 @@
-# Interactive question format
+# Question formats by host
 
-The bundled antibody card is a working example of the user's approved format, reusable for any subject by adapting its content. It uses no API or external dependencies. Its JavaScript submits the learner's response to this chat through the host-supported `window.openai.sendFollowUpMessage({prompt, title})`; the chat grades and generates the next question. The host may require the user to confirm the message.
+Use labeled Markdown choices and an explicit reply instruction in text-only hosts or when the interactive capabilities are unknown. Keep the assessment and progress rules identical across formats. A rendered HTML file, preview, or artifact by itself does not establish a way to submit to the current conversation.
+
+## ChatGPT card
+
+Use this example only on a ChatGPT surface with the documented rendering and handoff APIs. Its JavaScript asks the host to send the learner's response to the current chat via `window.openai.sendFollowUpMessage({prompt, title})`. The host may require learner confirmation. Keep native form controls, labels, keyboard focus, and narrow-screen readability. Use a concise title, scenario and prompt, labeled choices, separate confidence and optional reasoning, and an explicit submit action. Disable submission until the learner supplies an answer or uncertainty.
 
 ## Generate a question
 
-Read the available visualization skill before authoring. Copy `assets/antibody-question.html` to a new conversation-owned output path. Adapt these connected places together:
+For a supported ChatGPT surface, read its available visualization instructions. Copy `assets/antibody-question.html` to a conversation-owned output path. Adapt these connected places together:
 
 - Root ID, CSS selectors, form field IDs, and JavaScript element queries, keeping them consistent and unique.
 - Number/title, topic/difficulty/assessment mode, context, measurements or assumptions, question prompt, choices, and reasoning label. Replace biology-specific wording when the subject differs.
