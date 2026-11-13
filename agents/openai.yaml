@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unified Learning Coach"
+  short_description: "Goal-driven subject mastery and interactive coaching"
+  default_prompt: "Use $learning-coach to set or continue my subject-learning goal, assess my gaps, and coach me one interactive question at a time."
