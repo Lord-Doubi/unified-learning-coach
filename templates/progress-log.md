@@ -10,23 +10,23 @@ Use this structure as a copyable record or to organize an authorized course ledg
 - Verified source crosswalk and dates; provisional sources:
 - Diagnostic coverage: assessed domains / known total domains; unassessed areas:
 - Curriculum and prerequisites, if diagnosis supports one:
-- Last unanswered question ID and content, if any:
-- Next transfer/retention check and suggested interval (not a scheduled notification):
+- Last unanswered question or Socratic probe ID and content, if any:
+- Review queue with objective, due date, interval, latest outcome, and associated attempt IDs:
 - Storage: chat-tracked only / confirmed file path and last successful save:
 
 ## Competency evidence
 
-| Competency / unit | Weight and prerequisites | Status | Independent evidence | Coached / uncertain evidence | Remaining gap | Next verification |
+| Competency / unit | Weight and prerequisites | Status | Independent evidence and attempt IDs | Coached evidence | Remaining gap | Next review due |
 | --- | --- | --- | --- | --- | --- | --- |
 
-Statuses: Not assessed / Developing / Mastered. A mastered claim requires relevant independent reasoning and novel transfer/retention, not just correct selections. An uncertain attempt remains non-mastered evidence even if its selected answers were correct.
+Statuses are **Not assessed / Developing / Mastered**. Record the two qualifying demonstration IDs and the date of the delayed one for a mastered objective. After a clear failed review, record the change to **Developing** and preserve earlier evidence and dates. Flag legacy mastery with missing evidence for verification. Record confidence in the attempt history regardless of mode.
 
 ## Append-only attempt evidence
 
 | Course / objective | Question / attempt ID | Date | Type | Mode and hints/exposure | Submitted answers | Confidence | Correct set or rubric result | True options identified / incorrect additions / omissions | Reasoning evidence | Gap or misconception | Next check |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 
-Record substantive submitted attempts only. Explicit UI tests are excluded. Record correct sets or model solutions only after submission; do not expose a pending question's answer key in a pre-submission handoff. Uncertainty alone is an unscored gap. For open questions, record criterion evidence rather than inventing selected options.
+Record actual submissions and exclude explicit interface tests. Link a same-item probe to the original attempt and record any scaffolding. Keep correct sets and worked answers out of any handoff for a pending question or probe. Record uncertainty alone as an unscored gap. For open questions, record criterion-level evidence.
 
 ## Progress display
 

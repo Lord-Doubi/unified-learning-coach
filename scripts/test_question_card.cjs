@@ -17,6 +17,11 @@ function setup(host = {}) {
   const submit = () => form.handlers.submit({preventDefault(){}});
   return {choices,reason,button,status,fallback,prompt,change,submit,events};
 }
+function submittedAnswer(prompt) {
+  const prefix = 'My submitted answer: ';
+  const block = prompt.split('\n\n').find(part => part.startsWith(prefix));
+  return JSON.parse(block.slice(prefix.length));
+}
 (async () => {
   const messages = [], saves = [];
   const app = setup({sendFollowUpMessage:async x => messages.push(x), setWidgetState:async x => saves.push(x)});
@@ -41,15 +46,16 @@ function setup(host = {}) {
   await app.submit();
   assert.equal(messages.length,1);
   assert(messages[0].prompt.includes('My causal interpretation'));
-  assert(messages[0].prompt.includes('"selections":["B"]'));
+  assert.deepEqual(submittedAnswer(messages[0].prompt).selections, ['B']);
+  assert.equal(submittedAnswer(messages[0].prompt).uncertain, false);
   assert.equal(saves.at(-1).modelContent.reasoning,'My causal interpretation');
   app.change(5); await app.submit();
-  assert(messages[1].prompt.includes('"selections":["B","F"]'));
-  assert(messages[1].prompt.includes('not independently mastered'));
-  assert(messages[1].prompt.includes('still grade the selected A–E answers and reasoning'));
+  assert.deepEqual(submittedAnswer(messages[1].prompt).selections, ['B']);
+  assert.equal(submittedAnswer(messages[1].prompt).uncertain, true);
   const uncertainOnly = setup(); uncertainOnly.change(5); await uncertainOnly.submit();
   assert.equal(uncertainOnly.fallback.hidden,false);
-  assert(uncertainOnly.prompt.value.includes('"selections":["F"]'));
+  assert.deepEqual(submittedAnswer(uncertainOnly.prompt.value).selections, []);
+  assert.equal(submittedAnswer(uncertainOnly.prompt.value).uncertain, true);
   const fallback = setup(); fallback.change(0); await fallback.submit();
   assert.equal(fallback.fallback.hidden,false);
   assert(fallback.prompt.value.includes('"selections":["A"]'));
@@ -64,5 +70,5 @@ function setup(host = {}) {
   assert.equal(restored.choices[4].checked,true);
   assert.equal(restored.choices[5].checked,false);
   assert(!html.includes('Correct selections:'));
-  console.log('PASS: uncertainty preserves answers, editable combined selections, uncertainty-only submission, mastery instructions, handoff, fallback, state restoration, no displayed answer key.');
+  console.log('PASS: uncertainty preserves answers, submissions carry confidence separately, handoff and fallback work, saved drafts restore, and no answer key is displayed.');
 })().catch(error => {console.error(error); process.exitCode = 1;});

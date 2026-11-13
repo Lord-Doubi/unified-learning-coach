@@ -1,6 +1,6 @@
 # Goal-driven whole-subject learning
 
-Read for a new course, a curriculum revision, or a goal-verification request. A continuing lesson or short quiz goes directly to the existing stage and question protocol. The learner's latest request determines the entry point.
+Read for a new course, a curriculum revision, a learning or portfolio plan review, or goal verification. A continuing lesson or short quiz goes directly to the existing stage and question protocol. The learner's latest request determines the entry point.
 
 ## 0. Goal contract
 
@@ -15,6 +15,10 @@ Use [the goal-contract template](../templates/goal-contract.md). Support three g
 Do not equate one job posting with a whole profession. Distinguish coursework/qualifying readiness from original supervised research. No degree, institutional candidacy, professional license, or university endorsement is conferred.
 
 Ask only for missing details that block a useful next step. State the goal, bounded scope, success evidence, assessment standard, and any assumptions. Ask about practical time constraints when useful; give effort estimates only if requested and label them provisional. Obtain diagnostic evidence before prescribing a personalized curriculum. A provisional map and indicative sequence are appropriate before diagnosis, but not claims about the learner's gaps.
+
+### Review a learning or portfolio plan
+
+Identify the decision that controls the most important downstream choices. Resolve available facts from supplied material or relevant primary sources. Ask one unresolved decision at a time, after settling its prerequisites. When useful, give a recommended option and explain what it would change. Leave the decision with the learner. For example, settle whether an ML portfolio project must generalize to unseen groups before recommending a data split or metric. Once the consequential choices are settled, summarize the intended use, success evidence, assumptions, and next action. Keep this planning exchange out of the mastery record and withhold recommendations when evaluating the learner independently.
 
 ## 1. Provisional competency map and benchmarking
 
@@ -41,7 +45,7 @@ Default to exactly one question at a time. Use 2–5 questions only if the learn
 
 Mix multi-select questions, mechanism or derivation explanations, quantitative calculations, unfamiliar data, experimental design or equivalent investigation, paper/source critique, and oral defense. Use prerequisite questions when advanced reasoning depends on uncertain foundations. Do not show a lesson, answer-bearing figure, or reading that would teach the tested answer before an independent diagnostic submission. A user-requested hint changes that attempt's independence.
 
-Use the main skill's interaction and scoring contract. Confidence is a separate flag: uncertainty can coexist with selected answers, does not invalidate them, and precludes independent-mastery credit. This deliberately supersedes the older exclusive-U protocol. Accept `U`, `F`, or plain-language uncertainty in text replies as confidence indicators; neither letter belongs to the scored answer set. If using other answer labels, choose an uncertainty label that does not collide with them.
+Use the main skill's interaction, scoring, and confidence rules. Accept `U`, legacy `F`, or plain-language uncertainty in text replies as confidence indicators when they do not collide with scored answer labels. Record the user's hints and confidence separately. A correct answer with substantive unaided reasoning counts as independent evidence even when the learner reports low confidence.
 
 ## 3. Personalized curriculum after adequate evidence
 
@@ -55,13 +59,13 @@ For each reading, verify title, authors where feasible, publication date, URL/DO
 
 State one narrow objective. For a teaching round, explain concisely, use an accurate labeled mechanism/process/causal diagram, graph, proof structure, or evidence table when it clarifies the concept, and contrast competing models where useful. Label assumptions and illustrative versus observed data.
 
-Then ask one question and wait for submission. Log the round as coached if its answer was scaffolded. Grade choices and reasoning separately; clarify evidence and limits. Ask one adaptive follow-up that tests a prediction, counterexample, control, rescue, falsification, calculation, or unfamiliar interpretation. A conceptual failure calls for a short micro-lesson and simpler transfer item. Two independently correct, reasoned items support increasing complexity. Stay concise and interactive unless the learner asks for a lecture.
+Then ask one question and wait for submission. Log the round as coached if its answer was scaffolded. Apply the main skill's Socratic probe and feedback rules. Use open prompts to test a prediction, counterexample, control, rescue, falsification, calculation, or unfamiliar interpretation. Stay concise and interactive unless the learner asks for a lecture.
 
 Assess factual accuracy; explanatory or formal validity; quantitative logic and uncertainty; evidence strength and confounds; discriminating investigation; and defense against alternatives. In causal subjects, distinguish correlation, intervention effects, necessity, sufficiency, mediation, physical interaction, and mechanism. For biology, broad-acting drug rescue alone does not establish a local mechanism, occupancy does not establish direct binding, and a separation-of-function mutant requires relevant stability, localization, occupancy, and specificity controls. Do not transplant those biological tests as requirements in other fields.
 
 ## 5. Goal verification and retention
 
-Agree on goal-specific verification criteria before making a completion judgment. Reassess with unfamiliar problems without hints and at delayed intervals. Suggested review intervals are 1 day, 1 week, and 1 month when practical; these are proposals, not scheduled reminders. Do not promise notifications or create automations unless requested.
+Agree on goal-specific verification criteria before making a completion judgment. Apply the main skill's mastery criteria and spaced-review queue. A cumulative verification may include due reviews if the tasks meet the evidence criteria. Course review dates guide in-session question selection. They do not create scheduled reminders.
 
 An academic or research-oriented verification can combine a cumulative independent written assessment, unfamiliar data or proof/implementation tasks, oral qualifying-style discussion, critical paper/source review, a proposal and defense, and a reproducible capstone where appropriate. Typed oral-style exchanges assess argument and defense, not spoken delivery.
 
